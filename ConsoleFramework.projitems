@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>bf88d71a-ac8f-41b9-8c04-09d629fe1cb5</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ConsoleFramework</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Adapters\IBindingAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\BindingBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\BindingMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\BindingResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\BindingSettingsBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Converters\ConversionResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Converters\IBindingConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Converters\ReversedConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Converters\StringToIntegerConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Observables\IObservableList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Observables\ObservableList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Observables\ObservableListOfT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Validators\IBindingValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Validators\RequiredValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Binding\Validators\ValidationResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\ConsoleApplication.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\Button.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\ButtonBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\CheckBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\ComboBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\ContextMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\Control.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\Grid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\GroupBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\ListBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\MessageBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\KeyGestureActionWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\Panel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\ProgressBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\RadioButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\ScrollViewer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\TabControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\TextBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\TextBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\TreeView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\UIElementCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\Window.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Controls\WindowsHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\Colors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\Point.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\Rect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\Size.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\Thickness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\ThicknessConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\UnicodeTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\Vector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Core\VisualTreeHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\EventManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\FocusManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\ICommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\ICommandSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\KeyboardFocusChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\KeyConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\KeyEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\KeyGesture.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\KeyGestureConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\ModifierKeysConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\MouseEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\RoutedEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Events\RoutedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Native\Libc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Native\LibTermKey.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Native\NCurses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Native\Win32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Rendering\PhysicalCanvas.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Rendering\Renderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Rendering\RenderingBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Xaml\BindingMarkupExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Xaml\ConvertMarkupExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConsoleFramework\Xaml\NotBooleanConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\ContentPropertyAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\Factories.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\ITypeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\MarkupExtensionAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\MarkupExtensionsParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\RefMarkupExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\TypeConverterAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\TypeMarkupExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\XamlParser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)ConsoleFramework\ConsoleFramework.dll.config" />
+    <None Include="$(MSBuildThisFileDirectory)Xaml\xaml.xsd" />
+  </ItemGroup>
+</Project>

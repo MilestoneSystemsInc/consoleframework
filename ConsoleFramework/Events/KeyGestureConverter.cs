@@ -76,9 +76,9 @@ namespace ConsoleFramework.Events
                     str = str + '+';
                 }
                 str = str + str2;
-                if ( !string.IsNullOrEmpty( gesture.DisplayString ) ) {
+                /*if ( !string.IsNullOrEmpty( gesture.DisplayString ) ) {
                     str = str + ',' + gesture.DisplayString;
-                }
+                }*/
             }
             return str;
         }

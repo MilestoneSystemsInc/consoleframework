@@ -48,9 +48,18 @@ namespace ConsoleFramework.Controls
         }
 
         protected virtual void OnPreviewKeyDown(object sender, KeyEventArgs args) {
-            if (args.wVirtualKeyCode == VirtualKeys.Tab) {
-                ConsoleApplication.Instance.FocusManager.MoveFocusNext();
-                args.Handled = true;
+            if (args.wVirtualKeyCode == VirtualKeys.Tab)
+            {
+                if ((args.dwControlKeyState & ControlKeyState.SHIFT_PRESSED) == ControlKeyState.SHIFT_PRESSED)
+                {
+                    ConsoleApplication.Instance.FocusManager.MoveFocusPrev();
+                    args.Handled = true;
+                }
+                else
+                {
+                    ConsoleApplication.Instance.FocusManager.MoveFocusNext();
+                    args.Handled = true;
+                }
             }
         }
 

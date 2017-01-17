@@ -241,8 +241,8 @@ namespace Xaml
                         
                         // explicit property syntax
                         if ( Top != null && name.StartsWith( Top.type.Name + "." ) ) {
-                            if ( Top.currentProperty != null )
-                                throw new Exception( "Illegal syntax in property value definition." );
+                            //if ( Top.currentProperty != null )
+                            //    throw new Exception( "Illegal syntax in property value definition." );
                             string propertyName = name.Substring(Top.type.Name.Length + 1);
                             Top.currentProperty = propertyName;
                         } else {

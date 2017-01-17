@@ -60,7 +60,7 @@ namespace ConsoleFramework.Controls
             Focusable = true;
         }
 
-        private void Button_KeyDown( object sender, KeyEventArgs args ) {
+        protected virtual void Button_KeyDown( object sender, KeyEventArgs args ) {
             if (Disabled) return;
 
             if ( args.wVirtualKeyCode == VirtualKeys.Space

@@ -24,26 +24,42 @@ namespace ConsoleFramework.Events
             return (VirtualKeys)key;
         }
 
-        public object ConvertTo(object value, Type destinationType) {
-//            if (destinationType == null) {
-//                throw new ArgumentNullException("destinationType");
-//            }
-//            if ((destinationType == typeof(string)) && (value != null)) {
-//                VirtualKeys key = (VirtualKeys)value;
-//                if ((key >= VirtualKeys.N0) && (key <= VirtualKeys.N9)) {
-//                    return char.ToString((char)((ushort)((key - '0') + (ushort) VirtualKeys.N0)));
-//                }
-//                if ((key >= VirtualKeys.A) && (key <= VirtualKeys.Z)) {
-//                    return char.ToString((char)((ushort)((key - 0x2c) + 0x41)));
-//                }
-//                string str = key.ToString( );
-//                if ((str != null) && ((str.Length != 0) || (str == string.Empty))) {
-//                    return str;
-//                }
-//            }
-//            throw base.GetConvertToException(value, destinationType);
+        public object ConvertTo(object value, Type destinationType)
+        {
+            var oRet = (object)null;
+            if (destinationType == null)
+            {
+                throw new ArgumentNullException("destinationType");
+            }
+            if ((destinationType == typeof(string)) && (value != null))
+            {
+                oRet = String.Empty;
+                VirtualKeys key = (VirtualKeys)value;
+                if ((key >= VirtualKeys.N0) && (key <= VirtualKeys.N9))
+                {
+                    oRet = char.ToString((char)((ushort)((key - '0') + (ushort)VirtualKeys.N0)));
+                }
+                else if ((key >= VirtualKeys.A) && (key <= VirtualKeys.Z))
+                {
+                    oRet = char.ToString((char)((ushort)((key - 0x2c) + 0x41)));
+                }
+                else
+                {
+                    string str = key.ToString();
+                    if ((str != null) && ((str.Length != 0) || (str == string.Empty)))
+                    {
+                        oRet = str;
+                    }
+                }
+            }
+            else
+            {
+                throw new NotSupportedException("Unsupported conversion type");
+                //throw base.GetConvertToException(value, destinationType);
+            }
+            return oRet;
             // todo :
-            throw new NotSupportedException("todo :");
+            //throw new NotSupportedException("todo :");
         }
 
         private VirtualKeys parseKey(string keyToken) {

@@ -20,7 +20,7 @@ namespace ConsoleFramework.Controls
 
         protected override Size MeasureOverride(Size availableSize) {
             if (!string.IsNullOrEmpty(caption)) {
-                Size minButtonSize = new Size(caption.Length + 10, 2);
+                Size minButtonSize = new Size(this.Width.HasValue ? System.Math.Max(caption.Length + 10, this.Width.Value) : caption.Length + 10, 2);
                 return minButtonSize;
             } else return new Size(8, 2);
         }
@@ -40,17 +40,35 @@ namespace ConsoleFramework.Controls
                 buffer.FillRectangle(1, 0, ActualWidth - 1, ActualHeight - 1, ' ', captionAttrs);
                 buffer.SetOpacityRect(0, 0, 1, ActualHeight, 3);
                 buffer.FillRectangle(0, 0, 1, ActualHeight, ' ', captionAttrs);
-                if (!string.IsNullOrEmpty(Caption)) {
-                    RenderString(Caption, buffer, 2 + 1 +(ActualWidth - 2 * 2 - Caption.Length) / 2,
-                        (ActualHeight-1)/2, ActualWidth - 2 * 2, captionAttrs);
+                if (!string.IsNullOrEmpty(Caption))
+                {
+                    if (this.HorizontalAlignment == HorizontalAlignment.Left)
+                    {
+                        RenderString(Caption, buffer, 2 + 1,
+                            (ActualHeight - 1) / 2, ActualWidth - 2 * 2, captionAttrs);
+                    }
+                    else
+                    {
+                        RenderString(Caption, buffer, 2 + 1 + (ActualWidth - 2 * 2 - Caption.Length) / 2,
+                            (ActualHeight - 1) / 2, ActualWidth - 2 * 2, captionAttrs);
+                    }
                 }
                 buffer.SetOpacityRect(0, ActualHeight-1, ActualWidth, 1, 3);
                 buffer.FillRectangle(0, ActualHeight - 1, ActualWidth, 1, ' ', Attr.NO_ATTRIBUTES);
             } else {
                 buffer.FillRectangle(0, 0, ActualWidth - 1, ActualHeight, ' ', captionAttrs);
-                if (!string.IsNullOrEmpty(Caption)) {
-                    RenderString(Caption, buffer, 2 + (ActualWidth - 2 * 2 - Caption.Length) / 2, 
-                        (ActualHeight - 1) / 2, ActualWidth - 2 * 2, captionAttrs);
+                if (!string.IsNullOrEmpty(Caption))
+                {
+                    if (this.HorizontalAlignment == HorizontalAlignment.Left)
+                    {
+                        RenderString(Caption, buffer, 2,
+                            (ActualHeight - 1) / 2, ActualWidth - 2 * 2, captionAttrs);
+                    }
+                    else
+                    {
+                        RenderString(Caption, buffer, 2 + (ActualWidth - 2 * 2 - Caption.Length) / 2,
+                            (ActualHeight - 1) / 2, ActualWidth - 2 * 2, captionAttrs);
+                    }
                 }
                 buffer.SetPixel(0, ActualHeight-1, ' ');
                 buffer.SetOpacityRect(0, ActualHeight -1, ActualWidth, 1, 3);

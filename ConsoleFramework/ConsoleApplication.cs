@@ -53,6 +53,40 @@ namespace ConsoleFramework
         /// Maximizes the terminal window size and terminal buffer size.
         /// Current size is stored.
         /// </summary>
+        public void SetWindowSize(Size newSize)
+        {
+            if (usingLinux)
+            {
+                // Doesn't work in Konsole
+                Console.Write("\x1B[9;1t");
+                return;
+            }
+
+            //if (maximized) return;
+            //
+            savedBufferSize = new Size(Console.BufferWidth, Console.BufferHeight);
+            //Win32.SendMessage(getConsoleWindowHwnd(), Win32.WM_SYSCOMMAND,
+            //    Win32.SC_MAXIMIZE, IntPtr.Zero);
+            int maxWidth = Console.LargestWindowWidth;
+            int maxHeight = Console.LargestWindowHeight;
+            int nWidth = Math.Min(maxWidth, newSize.Width);
+            int nHeight = Math.Min(maxHeight, newSize.Height);
+            Console.SetWindowPosition(0, 0);
+            Console.SetBufferSize(nWidth, nHeight);
+            Console.SetWindowSize(nWidth, nHeight);
+
+            // Apply new sizes to Canvas
+            CanvasSize = new Size(nWidth, nHeight);
+            renderer.RootElementRect = new Rect(userCanvasSize);
+            renderer.UpdateLayout();
+
+            //maximized = true;
+        }
+
+        /// <summary>
+        /// Maximizes the terminal window size and terminal buffer size.
+        /// Current size is stored.
+        /// </summary>
         public void Maximize( ) {
             if ( usingLinux ) {
 				// Doesn't work in Konsole
@@ -177,27 +211,35 @@ namespace ConsoleFramework
         private PhysicalCanvas canvas;
 
         public static Control LoadFromXaml( string xamlResourceName, object dataContext ) {
-            var assembly = Assembly.GetEntryAssembly();
-            using ( Stream stream = assembly.GetManifestResourceStream( xamlResourceName ) ) {
-                if ( null == stream ) {
-                    throw new ArgumentException("Resource not found.", "xamlResourceName");
-                }
-                using ( StreamReader reader = new StreamReader( stream ) ) {
-                    string result = reader.ReadToEnd( );
-                    Control control = XamlParser.CreateFromXaml<Control>(result, dataContext, new List<string>()
+            return LoadFromXaml(xamlResourceName, dataContext, new List<string>()
                     {
                         "clr-namespace:Xaml;assembly=Xaml",
                         "clr-namespace:ConsoleFramework.Xaml;assembly=ConsoleFramework",
                         "clr-namespace:ConsoleFramework.Controls;assembly=ConsoleFramework",
                     });
+        }
+
+        public static Control LoadFromXaml(string xamlResourceName, object dataContext, List<string> defaultNamespaces)
+        {
+            var assembly = Assembly.GetEntryAssembly();
+            using (Stream stream = assembly.GetManifestResourceStream(xamlResourceName))
+            {
+                if (null == stream)
+                {
+                    throw new ArgumentException("Resource not found.", "xamlResourceName");
+                }
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string result = reader.ReadToEnd();
+                    Control control = XamlParser.CreateFromXaml<Control>(result, dataContext, defaultNamespaces);
                     control.DataContext = dataContext;
-                    control.Created( );
+                    control.Created();
                     return control;
                 }
             }
         }
 
-		private static readonly bool usingLinux;
+        private static readonly bool usingLinux;
 		private static readonly bool isDarwin;
         private static readonly bool usingJsil;
 

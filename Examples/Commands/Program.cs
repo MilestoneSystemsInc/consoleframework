@@ -24,7 +24,7 @@ namespace Examples.Commands
                 get { return buttonEnabled; }
                 set {
                     if ( buttonEnabled != value ) {
-                        buttonEnabled = value;
+                        buttonEnabled = value;  
                         command.RaiseCanExecuteChanged( );
                     }
                 }
